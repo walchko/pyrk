@@ -22,7 +22,7 @@ Develop
 Usage
 --------
 
-See the examples in the ''docs'' folder or a simple one::
+See the examples in the `docs <https://github.com/walchko/pyrk/blob/master/doc/runge-kutta.ipynb>`_ folder or a simple one::
 
 	from __future__ import division, print_function
 	from pyrk import RK4
