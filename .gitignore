@@ -3,4 +3,4 @@
 .ipynb_checkpoints
 *.egg-info*
 build
-sdist
+dist
