@@ -1,0 +1,51 @@
+Runge-Kutta 4
+==============
+
+A simple implementation of `Runge-Kutta <https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods>`_
+for python.
+
+Install from PyPi
+-------------------
+
+	pip install pyrk
+
+
+Develop
+----------
+
+	python setup.py develop
+	python setup.py develop --uninstall
+
+Usage
+--------
+
+See the examples in the ''docs'' folder or a simple one::
+
+	from __future__ import division, print_function
+	from pyrk import RK4
+	import numpy as np
+	import matplotlib.pyplot as plt
+
+	def vanderpol(t, xi, u):
+		dx, x = xi
+		mu = 4.0 # damping
+
+		ddx = mu*(1-x**2)*dx-x
+		dx = dx
+
+		return np.array([ddx, dx])
+
+	rk = RK4(vanderpol)
+	t, y = rk.solve(np.array([0, 1]), .01, 200)
+	
+	y1 = []
+	y2 = []
+	for v in y:
+		y1.append(v[0])
+		y2.append(v[1])
+
+	plt.plot(y1, y2)
+	plt.ylabel('velocity')
+	plt.xlabel('position')
+	plt.grid(True)
+	plt.show()
