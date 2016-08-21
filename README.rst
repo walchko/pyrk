@@ -1,6 +1,9 @@
 Runge-Kutta 4
 ==============
 
+.. image:: https://travis-ci.org/walchko/pyrk.svg?branch=master
+    :target: https://travis-ci.org/walchko/pyrk
+
 A simple implementation of `Runge-Kutta <https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods>`_
 for python.
 
@@ -37,7 +40,7 @@ See the examples in the ''docs'' folder or a simple one::
 
 	rk = RK4(vanderpol)
 	t, y = rk.solve(np.array([0, 1]), .01, 200)
-	
+
 	y1 = []
 	y2 = []
 	for v in y:
