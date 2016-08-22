@@ -8,7 +8,7 @@ version = '0.5.2'
 if sys.argv[-1] == 'publish':
 	os.system("rm -fr dist")
 	os.system("python setup.py sdist")
-	os.system("twine upload dist/*")
+	os.system("twine upload dist/pyrk-{}.tar.gz".format(version))
 	sys.exit()
 
 if sys.argv[-1] == 'tag':
