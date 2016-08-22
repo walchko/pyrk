@@ -3,6 +3,6 @@ sudo: false
 python:
   - "2.7"
 # command to install dependencies
-install: pip install -e --user .
+install: pip install --user -e .
 # command to run tests
 script: nosetests -vw tests
