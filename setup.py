@@ -3,7 +3,7 @@ import sys
 from setuptools import setup
 from setuptools import find_packages
 
-version = '0.5.1'
+version = '0.5.2'
 
 if sys.argv[-1] == 'publish':
 	os.system("rm -fr dist")
@@ -28,8 +28,8 @@ setup(
 	url="http://github.com/walchko/pyrk",
 	# zip_safe=False,
 	# packages=find_packages(exclude=['examples', 'test', 'doc']),  # doesn't work
-	packages=find_packages('pyrk'),
-	package_dir={'': 'pyrk'},
+	packages=find_packages(exclude=['examples', 'doc', 'tests']),
+	# package_dir={'': 'pyrk'},
 	# packages=['pyrk'],
 	# install_requires=['nose'],
 	keywords='ode integration rk4 rk runge kutta',

@@ -16,8 +16,7 @@ Install from PyPi
 Develop
 ----------
 
-	python setup.py develop
-	python setup.py develop --uninstall
+	pip install -e .
 
 Usage
 --------
