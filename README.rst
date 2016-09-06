@@ -22,7 +22,7 @@ Develop
 ~~~~~~~~~~
 
 ::
-	
+
 	git clone https://github.com/walchko/pyrk
 	cd pyrk
 	pip install -e .
@@ -30,7 +30,9 @@ Develop
 Usage
 --------
 
-See the examples in the `docs <https://github.com/walchko/pyrk/blob/master/doc/runge-kutta.ipynb>`_ folder or a simple one::
+See the examples in the `docs <https://github.com/walchko/pyrk/blob/master/doc/runge-kutta.ipynb>`_ folder or a simple one:
+
+.. code:: python
 
 	from __future__ import division, print_function
 	from pyrk import RK4
