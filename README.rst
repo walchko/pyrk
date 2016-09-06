@@ -2,20 +2,28 @@ Runge-Kutta 4
 ==============
 
 .. image:: https://travis-ci.org/walchko/pyrk.svg?branch=master
-    :target: https://travis-ci.org/walchko/pyrk
+	:target: https://travis-ci.org/walchko/pyrk
 
 A simple implementation of `Runge-Kutta <https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods>`_
 for python.
 
-Install from PyPi
--------------------
+Setup
+--------
+
+Install
+~~~~~~~~~
+
+::
 
 	pip install pyrk
 
 
 Develop
-----------
+~~~~~~~~~~
 
+::
+	git clone https://github.com/walchko/pyrk
+	cd pyrk
 	pip install -e .
 
 Usage

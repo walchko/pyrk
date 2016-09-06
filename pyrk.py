@@ -2,6 +2,8 @@
 
 from __future__ import division
 
+__version__ = '0.5.3'
+
 class RK4(object):
 	"""
 	Implements a Runge-Kutta 4 as explained here:

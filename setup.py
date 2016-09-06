@@ -1,37 +1,50 @@
+#!/usr/bin/enb python
+
+from __future__ import print_function
 import os
-import sys
 from setuptools import setup
 from setuptools import find_packages
+from setuptools.command.test import test as TestCommand
+from pyrk import __version__ as VERSION
 
-version = '0.5.2'
 
-if sys.argv[-1] == 'publish':
-	os.system("rm -fr dist")
-	os.system("python setup.py sdist")
-	os.system("twine upload dist/pyrk-{}.tar.gz".format(version))
-	sys.exit()
+# http://fgimian.github.io/blog/2014/04/27/running-nose-tests-with-plugins-using-the-setuptools-test-command/
+class NoseTestCommand(TestCommand):
+	def run_tests(self):
+		print('Running nose tests ...')
+		os.system('nosetests -v tests/test_pyrk.py')
 
-if sys.argv[-1] == 'tag':
-	os.system("git tag -a %s -m 'version %s'" % (version, version))
-	os.system("git push --tags")
-	sys.exit()
+
+class PublishCommand(TestCommand):
+	def run_tests(self):
+		print('Publishing to PyPi ...')
+		os.system("python setup.py sdist")
+		os.system("twine upload dist/pyrk-{}.tar.gz".format(VERSION))
+
+
+class GitTagCommand(TestCommand):
+	def run_tests(self):
+		print('Creating a tag for version {} on git ...'.format(VERSION))
+		os.system("git tag -a {} -m 'version {}'".format(VERSION, VERSION))
+		os.system("git push --tags")
+
+
+class CleanCommand(TestCommand):
+	def run_tests(self):
+		print('Cleanning up ...')
+		os.system('rm -fr pyrk.egg-info dist')
 
 setup(
 	name='pyrk',
-	version=version,
+	version=VERSION,
 	description="A simple runge-kutta 4 integrator",
 	long_description=open('README.rst').read(),
 	author="Kevin Walchko",
 	author_email='kevin.walchko@outlook.com',
-	# platforms=["any"],  # or more specific, e.g. "win32", "cygwin", "osx"
 	license="MIT",
 	url="http://github.com/walchko/pyrk",
-	# zip_safe=False,
-	# packages=find_packages(exclude=['examples', 'test', 'doc']),  # doesn't work
 	packages=find_packages(exclude=['examples', 'doc', 'tests']),
-	# package_dir={'': 'pyrk'},
 	# packages=['pyrk'],
-	# install_requires=['nose'],
 	keywords='ode integration rk4 rk runge kutta',
 	classifiers=[
 		'Development Status :: 4 - Beta',
@@ -44,7 +57,15 @@ setup(
 		'Topic :: Scientific/Engineering',
 		'Topic :: Software Development'
 	],
-	# test_suite='nose.collector',
-	# test_suite='tests',
-	# tests_require=['nose']
+	setup_requires=[
+		'nose',
+		# 'coverage',
+		# 'mock'
+	],
+	cmdclass={
+		'test': NoseTestCommand,
+		'publish': PublishCommand,
+		'tag': GitTagCommand,
+		'clean': CleanCommand
+	},
 )

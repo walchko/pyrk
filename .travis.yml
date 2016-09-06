@@ -1,8 +1,8 @@
 language: python
-sudo: true
+sudo: false
 python:
   - "2.7"
 # command to install dependencies
-install: pip install -e .
+install: pip install
 # command to run tests
-script: nosetests -vw tests
+script: nosetests -v tests/test_pyrk.py
