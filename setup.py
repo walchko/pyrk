@@ -1,25 +1,26 @@
 #!/usr/bin/enb python
 
-from __future__ import print_function
+# from __future__ import print_function
 import os
 from setuptools import setup
 from setuptools import find_packages
 from setuptools.command.test import test as TestCommand
-from pyrk import __version__ as VERSION
 
+VERSION = '0.6.0'
 
 # http://fgimian.github.io/blog/2014/04/27/running-nose-tests-with-plugins-using-the-setuptools-test-command/
 class NoseTestCommand(TestCommand):
 	def run_tests(self):
 		print('Running nose tests ...')
-		os.system('nosetests -v tests/test_pyrk.py')
+		os.system('nosetests -v -w tests')
 
 
 class PublishCommand(TestCommand):
 	def run_tests(self):
 		print('Publishing to PyPi ...')
-		os.system("python setup.py sdist")
-		os.system("twine upload dist/pyrk-{}.tar.gz".format(VERSION))
+# 		os.system("python setup.py sdist")
+		os.system("python setup.py bdist_wheel")
+		os.system("twine upload dist/pyrk-{}*.whl".format(VERSION))
 
 
 class GitTagCommand(TestCommand):
@@ -43,8 +44,8 @@ setup(
 	author_email='kevin.walchko@outlook.com',
 	license="MIT",
 	url="http://github.com/walchko/pyrk",
-	packages=find_packages(exclude=['examples', 'doc', 'tests']),
-	# packages=['pyrk'],
+# 	packages=find_packages(exclude=['examples', 'doc', 'tests']),
+	packages=['pyrk'],
 	keywords='ode integration rk4 rk runge kutta',
 	classifiers=[
 		'Development Status :: 4 - Beta',

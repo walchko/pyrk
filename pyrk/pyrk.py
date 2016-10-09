@@ -2,7 +2,6 @@
 
 from __future__ import division
 
-__version__ = '0.5.4'
 
 class RK4(object):
 	"""
