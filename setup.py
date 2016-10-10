@@ -6,7 +6,7 @@ from setuptools import setup
 from setuptools import find_packages
 from setuptools.command.test import test as TestCommand
 
-VERSION = '0.6.0'
+VERSION = '0.6.1'
 
 # http://fgimian.github.io/blog/2014/04/27/running-nose-tests-with-plugins-using-the-setuptools-test-command/
 class NoseTestCommand(TestCommand):
