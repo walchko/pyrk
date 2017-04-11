@@ -1,11 +1,29 @@
+
+.. image:: https://github.com/walchko/pyrk/raw/master/pics/math2.jpg
+	:alt: Header pic
+
 Runge-Kutta 4
 ==============
 
 .. image:: https://travis-ci.org/walchko/pyrk.svg?branch=master
 	:target: https://travis-ci.org/walchko/pyrk
+	:alt: Travis-ci
+.. image:: https://landscape.io/github/walchko/pyrk/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/walchko/pyrk/master
+   :alt: Code Health
+.. image:: https://img.shields.io/pypi/pyversions/pyrk.svg
+	:target:  https://pypi.python.org/pypi/pyrk/
+	:alt: Python Versions
+.. image:: https://img.shields.io/pypi/v/pyrk.svg
+    :target: https://pypi.python.org/pypi/pyrk/
+    :alt: Latest Version
+.. image:: https://img.shields.io/pypi/l/pyrk.svg
+    :target: https://pypi.python.org/pypi/pyrk/
+    :alt: License
+
 
 A simple implementation of `Runge-Kutta <https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods>`_
-for python.
+for python. This supports both python 2 and python 3.
 
 Setup
 --------
@@ -13,7 +31,7 @@ Setup
 Install
 ~~~~~~~~~
 
-::
+The preferred method of installation is using ``pip``::
 
 	pip install pyrk
 

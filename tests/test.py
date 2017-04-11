@@ -1,12 +1,9 @@
-"""
-nosetests -vw tests/
-
-WARNING: nose skips executable files
-"""
-
+from __future__ import print_function
 from __future__ import division
 from pyrk import RK4
-from math import sin, pi, cos
+# from math import sin
+from math import pi
+from math import cos
 # import numpy as np
 # import matplotlib.pyplot as plt
 
@@ -21,6 +18,7 @@ def test_solve():
 	# plt.show()
 	assert(y[-1] < 0.01)
 
+
 def test_step():
 	rk = RK4(lambda t, y, u: cos(t))
 	y = 0.0
@@ -33,7 +31,3 @@ def test_step():
 
 	# print(y)
 	assert(y < 0.01)
-
-
-# test_solve()
-test_step()
