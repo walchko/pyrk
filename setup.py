@@ -1,5 +1,5 @@
 from setuptools import setup
-from pyxl320 import __version__ as VERSION
+from pyrk.version import __version__ as VERSION
 from build_utils import BuildCommand
 from build_utils import PublishCommand
 from build_utils import BinaryDistribution
@@ -29,10 +29,11 @@ setup(
 		'Intended Audience :: Developers',
 		'Programming Language :: Python :: 2.7',
 		'Programming Language :: Python :: 3.6',
-		'Programming Language :: Python :: 2 :: Only',
 		'Topic :: Scientific/Engineering',
 		'Topic :: Software Development'
 	],
+	install_requires=open("requirements.txt").readlines(),
+	tests_require=['nose'],
 	# setup_requires=[
 	# 	# 'nose',
 	# 	# 'coverage',
