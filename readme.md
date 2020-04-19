@@ -2,7 +2,7 @@
 
 # Runge-Kutta 4
 
-[![Actions Status](https://github.com/MomsFriendlyRobotCompany/pyrk/workflows/pytest/badge.svg)](https://github.com/MomsFriendlyRobotCompany/pyrk/actions)
+[![Actions Status](https://github.com/walchko/pyrk/workflows/pytest/badge.svg)](https://github.com/walchko/pyrk/actions)
 ![PyPI - License](https://img.shields.io/pypi/l/pyrk.svg)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyrk.svg)
 ![PyPI - Format](https://img.shields.io/pypi/format/pyrk.svg)
