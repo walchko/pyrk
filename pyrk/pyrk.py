@@ -30,7 +30,7 @@ class RK4:
     #     """
     #     self.func = f
 
-    f = attr.ib()
+    func = attr.ib()
 
     def solve(self, y, h, t_end):
         """
