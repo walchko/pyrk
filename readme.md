@@ -10,7 +10,7 @@
 
 A simple implementation of
 [Runge-Kutta](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
-for python. This supports both python 2 and python 3.
+for python.
 
 ## Setup
 
@@ -29,12 +29,11 @@ poetry install
 
 ## Usage
 
-See the examples in the
+Integrates a function $\hat x = f(time, x, u)$. See the examples in the
 [docs](https://github.com/walchko/pyrk/blob/master/doc/runge-kutta.ipynb)
 folder or a simple one:
 
 ``` python
-from __future__ import division, print_function
 from pyrk import RK4
 import numpy as np
 import matplotlib.pyplot as plt
