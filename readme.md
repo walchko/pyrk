@@ -29,7 +29,7 @@ poetry install
 
 ## Usage
 
-Integrates a function $\hat x = f(time, x, u)$. See the examples in the
+Integrates a function x_dot = f(time, x, u). See the examples in the
 [docs](https://github.com/walchko/pyrk/blob/master/doc/runge-kutta.ipynb)
 folder or a simple one:
 
