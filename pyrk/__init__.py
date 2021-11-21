@@ -6,12 +6,9 @@
 from .pyrk import RK4
 
 
-try:
-    from importlib.metadata import version # type: ignore
-except ImportError:
-    from importlib_metadata import version # type: ignore
+from importlib.metadata import version # type: ignore
 
 __license__ = 'MIT'
-__copyright__ = 'copyright (c) 2016 Kevin J. Walchko'
+__copyright__ = 'copyright (c) 2015 Kevin J. Walchko'
 __author__ = 'Kevin J. Walchko'
 __version__ = version("pyrk")
