@@ -3,9 +3,12 @@
 # Copyright (c) 2015 Kevin Walchko
 # see LICENSE for full details
 ##############################################
-import attr
+from dataclasses import dataclass
+from typing import Callable
+import numpy as np
 
-@attr.s(slots=True)
+# @attr.s(slots=True)
+@dataclass(slots=True)
 class RK4:
     """
     Implements a Runge-Kutta 4 as explained here:
@@ -30,8 +33,8 @@ class RK4:
     #     """
     #     self.func = f
 
-    func = attr.ib()
-
+    # func = attr.ib()
+    func: Callable[[float,np.ndarray, np.ndarray], np.ndarray]
     def solve(self, y, h, t_end):
         """
         Given a function, initial conditions, step size and end value, this will

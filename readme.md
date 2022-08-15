@@ -1,6 +1,6 @@
 ![Header pic](https://github.com/walchko/pyrk/raw/master/pics/math2.jpg)
 
-# Runge-Kutta 4
+# Runge-Kutta
 
 [![Actions Status](https://github.com/walchko/pyrk/workflows/pytest/badge.svg)](https://github.com/walchko/pyrk/actions)
 ![PyPI - License](https://img.shields.io/pypi/l/pyrk.svg)
@@ -11,21 +11,6 @@
 A simple implementation of
 [Runge-Kutta](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
 for python.
-
-## Setup
-
-### Install
-
-The preferred method of installation is: `pip install pyrk`
-
-### Develop
-
-```
-git clone https://github.com/walchko/pyrk
-cd pyrk
-poetry build
-poetry install
-```
 
 ## Usage
 
@@ -61,6 +46,36 @@ plt.ylabel('velocity')
 plt.xlabel('position')
 plt.grid(True)
 plt.show()
+```
+
+## Alternative
+
+If you want to use `scipy` (which is good, but big), you can do:
+
+```python
+from scipy.integrate import solve_ivp rk45
+
+def func(t,x,u):
+    # cool differential equations
+    # ...
+    return x
+
+t = 0
+dt = 0.01
+y = np.array([0,0,0]) # initial state
+
+for _ in tqdm(range(steps)):
+    u = np.array([1,2,3]) # some inputs to func (i.e., control effort)
+
+    y = rk45(func, [t, t+step], y, args=(u,))
+
+    if y.success == False:
+        print("Oops")
+
+    y = y.y[:,-1]
+
+    # probably save t, u and y into arrays for plotting
+    t += step
 ```
 
 # MIT License

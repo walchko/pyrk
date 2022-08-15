@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyrk"
-version = "0.9.3"
+version = "0.9.4"
 description = "ode integration rk4 rk runge kutta"
 authors = ["walchko <walchko@users.noreply.github.com>"]
 readme = "readme.md"
@@ -27,7 +27,8 @@ python = ">=3.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
+numpy = "*"
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=1.1.0"]
 build-backend = "poetry.masonry.api"
