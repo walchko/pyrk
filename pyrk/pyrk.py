@@ -3,7 +3,7 @@
 # Copyright (c) 2015 Kevin Walchko
 # see LICENSE for full details
 ##############################################
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Callable
 import numpy as np
 
@@ -18,23 +18,12 @@ class RK4:
     where:
         t - time
         y - state
-        u - control force
+        u - control force or other parameters for function
     """
 
-    # def __init__(self, f):
-    #     """
-    #     Constructor which takes a function for integration.
-    #
-    #     f - function(t, y, u)
-    #         where:
-    #             t - time
-    #             y - state
-    #             u - control force
-    #     """
-    #     self.func = f
-
-    # func = attr.ib()
     func: Callable[[float,np.ndarray, np.ndarray], np.ndarray]
+    dt: float = field(default=0.0)
+
     def solve(self, y, h, t_end):
         """
         Given a function, initial conditions, step size and end value, this will
@@ -51,12 +40,12 @@ class RK4:
         ti = 0.0
         while ti < t_end:
             ts.append(ti)
-            yi = self.step(yi, None, ti, h)
+            yi = self.__step(yi, None, ti, h)
             ys.append(yi)
             ti += h
         return ts, ys
 
-    def step(self, y, u, t, h):
+    def __step(self, y, u, t, h):
         """
         This is called by solve, but can be called by the user who wants to
         run through an integration with a control force.
@@ -72,6 +61,8 @@ class RK4:
         k4 = h * self.func(t + h, y + h*k3, u)
         return y + (k1 + 2*k2 + 2*k3 + k4) / 6.0
 
-    def __call__(self, y, u, t, h):
+    def __call__(self, y, u, t, h=None):
         """Alternative to calling step()"""
-        return self.step(y, u, t, h)
+        if h is None:
+            h = self.dt
+        return self.__step(y, u, t, h)
