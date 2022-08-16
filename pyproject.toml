@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyrk"
-version = "0.9.4"
+version = "0.9.5"
 description = "ode integration rk4 rk runge kutta"
 authors = ["walchko <walchko@users.noreply.github.com>"]
 readme = "readme.md"
