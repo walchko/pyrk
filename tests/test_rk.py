@@ -17,7 +17,7 @@ def test_step():
     step = 0.01
 
     while t <= 2.0*pi:
-        y = rk(y, None, t, step)
+        y = rk(t, y, None, step)
         t += step
 
     assert(y < 0.01)

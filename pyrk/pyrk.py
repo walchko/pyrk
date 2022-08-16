@@ -7,8 +7,7 @@ from dataclasses import dataclass, field
 from typing import Callable
 import numpy as np
 
-# @attr.s(slots=True)
-@dataclass(slots=True)
+@dataclass()
 class RK4:
     """
     Implements a Runge-Kutta 4 as explained here:
@@ -40,12 +39,12 @@ class RK4:
         ti = 0.0
         while ti < t_end:
             ts.append(ti)
-            yi = self.__step(yi, None, ti, h)
+            yi = self.__step(ti, yi, None, h)
             ys.append(yi)
             ti += h
         return ts, ys
 
-    def __step(self, y, u, t, h):
+    def __step(self, t, y, u, h):
         """
         This is called by solve, but can be called by the user who wants to
         run through an integration with a control force.
@@ -61,8 +60,8 @@ class RK4:
         k4 = h * self.func(t + h, y + h*k3, u)
         return y + (k1 + 2*k2 + 2*k3 + k4) / 6.0
 
-    def __call__(self, y, u, t, h=None):
+    def __call__(self, t, y, u, h=None):
         """Alternative to calling step()"""
         if h is None:
             h = self.dt
-        return self.__step(y, u, t, h)
+        return self.__step(t, y, u, h)

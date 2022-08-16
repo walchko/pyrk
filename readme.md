@@ -53,7 +53,7 @@ plt.show()
 If you want to use `scipy` (which is good, but big), you can do:
 
 ```python
-from scipy.integrate import solve_ivp rk45
+from scipy.integrate import solve_ivp as rk45
 
 def func(t,x,u):
     # cool differential equations
