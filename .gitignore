@@ -8,3 +8,5 @@ dist
 *.lock
 old
 archive
+__pycache__
+.pytest_cache
