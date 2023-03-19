@@ -20,7 +20,7 @@ class RK4:
         u - control force or other parameters for function
     """
 
-    func: Callable[[float,np.ndarray, np.ndarray], np.ndarray]
+    func: Callable[[float,np.ndarray, np.ndarray,float], np.ndarray]
     dt: float = field(default=0.0)
 
     def solve(self, y, h, t_end):
