@@ -18,6 +18,7 @@ jobs:
             - name: Install packages
               run: |
                 echo "Installing dependencies"
+                cd python
                 python3 -m venv .venv
                 source .venv/bin/activate
                 pip install -U pip setuptools wheel poetry pytest
