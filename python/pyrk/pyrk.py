@@ -3,7 +3,8 @@
 # Copyright (c) 2015 Kevin Walchko
 # see LICENSE for full details
 ##############################################
-from dataclasses import dataclass, field
+from dataclasses import dataclass
+from dataclasses import field
 from typing import Callable
 import numpy as np
 
